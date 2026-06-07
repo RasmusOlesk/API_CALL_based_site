@@ -1,0 +1,60 @@
+.lightning img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card {
+  background: var(--code-bg);
+  border: var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.lightning {
+  max-width: 150px;
+  width: 100%;
+  max-height: 100%;
+  height: 250px;
+  margin: auto
+}
+
+.lightning.left {
+  clip-path: polygon(0% 0%,  /* vasak ülemine nurk */
+                    30% 20%,  /* vasak nurk nr.2 */
+                    10% 55%,  /* vasak nurk nr.3 */
+                    85% 100%,  /* alumine tipp */
+                    65% 60%,  /* parem ülemine nurk nr.3 */
+                    100% 25%,  /* parem ülemine nurk nr.2 */
+                    75% 0%); /* parem ülemine nurk */
+}
+
+.lightning.right {
+  clip-path: polygon(25% 0%,  /* vasak ülemine nurk */
+                    0% 25%,  /* vasak nurk nr.2 */
+                    35% 60%,  /* vasak nurk nr.3 */
+                    15% 100%,  /* alumine tipp */
+                    90% 55%,  /* parem ülemine nurk nr.3 */
+                    70% 20%,  /* parem ülemine nurk nr.2 */
+                    100% 0%); /* parem ülemine nurk */
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+ 
+}
+
+.sticky.top {
+  top: 0;
+  z-index: 1000;
+}
+
+.sticky.bottom {
+  bottom: 0;
+   z-index: 999;
+}
+
+.footer {
+  color: rgba(243, 244, 246, 0.90);
+}
