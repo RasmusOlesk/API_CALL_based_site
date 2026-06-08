@@ -1,36 +1,40 @@
 :root {
-  --text: black;
-  --text-h: #08060d;
-  --bg: rgb(184, 185, 187);
-  --border: #e5e4e7;
-  --code-bg: rgb(204, 203, 196);
-  --shadow:
-    rgba(0, 0, 0, 0.2) 0 10px 15px 3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* ===  COLOR PALETTE === */
+  --text: #000;
+  --text-h: #ff1e1e;
+  --bg: #ffffff;
+  --border: #000;
+  --code-bg: #f4f4f4;
 
-  --sans: Arial, Helvetica, sans-serif;
-  --heading: Arial, Helvetica, sans-serif;
+  /* Persona 5 punchy shadow */
+  --shadow:
+    6px 6px 0 #000,
+    -3px -3px 0 #ff1e1e;
+
+  --sans: "Arial Black", Impact, sans-serif;
+  --heading: "Arial Black", Impact, sans-serif;
 
   font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
+  letter-spacing: 0.5px;
   background: var(--bg) !important;
-
 
   @media (max-width: 1024px) {
     font-size: 16px;
   }
 }
 
+/* === DARK MODE  === */
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: rgba(243, 244, 246, 0.90);
-    --text-h: #f3f4f6;
-    --bg: #16171d !important;
-    --border: #2e303a;
-    --code-bg: #1f2028;;
+    --text: #fff;
+    --text-h: #ff1e1e;
+    --bg: #0b0b0b !important;
+    --border: #ff1e1e;
+    --code-bg: #1a1a1a;
+
     --shadow:
-      rgba(255, 255, 255, 0.2) 0 5px 15px 5px, rgba(255, 255, 255, 0.05) 0 4px 6px -2px;
+      6px 6px 0 #ff1e1e,
+      -3px -3px 0 #000;
   }
 
   #social .button-icon {
@@ -38,57 +42,102 @@
   }
 }
 
+/* === ROOT WRAPPER === */
 #root {
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
+  border-inline: 4px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  background: var(--bg);
+
+  /* Persona 5 diagonal cut */
+  transform: skew(-3deg);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
 }
 
-#menu .container, #footer .container {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
+/* Background comic pattern */
+#root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 0, 0, 0.15) 0 12px,
+    rgba(0, 0, 0, 0.15) 12px 24px
+  );
+  z-index: -1;
 }
 
+/* === BODY === */
 body {
   margin: 0;
   background-color: var(--bg) !important;
   color: var(--text) !important;
-  font-family: Arial, Helvetica, sans-serif !important;
+  font-family: var(--sans) !important;
+  overflow-x: hidden;
 }
 
+/* === HEADINGS === */
 h1,
 h2 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 900;
   color: var(--text-h) !important;
+  text-shadow: 4px 4px 0 #000;
+  transform: skew(-8deg);
 }
 
+/* === H1 === */
 h1 {
   font-size: 56px;
-  letter-spacing: -1.68px;
+  letter-spacing: -1.5px;
   margin: 32px 0;
+  padding: 12px 26px;
+  background: #fff;
+  border: 4px solid #000;
+  display: inline-block;
+
+  /* Persona 5 explosive shadow */
+  box-shadow:
+    6px 6px 0 #ff1e1e,
+    -4px -4px 0 #000;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
+/* === H2 === */
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
+  padding: 6px 14px;
+  background: #fff;
+  border: 3px solid #000;
+  display: inline-block;
+
+  box-shadow:
+    4px 4px 0 #ff1e1e,
+    -3px -3px 0 #000;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
+/* === PARAGRAPHS === */
 p {
   margin: 0;
+  font-weight: 600;
+  transform: skew(-2deg);
 }
-

@@ -1,60 +1,142 @@
+/* === LIGHTNING IMAGES === */
 .lightning img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  /* Punchier Persona 5 look */
+  filter: contrast(1.35) brightness(1.15) saturate(1.4);
+  transform: skew(-3deg);
 }
 
+/* === CARD  === */
 .card {
-  background: var(--code-bg);
-  border: var(--border);
-  color: var(--text);
-  box-shadow: var(--shadow);
+  background: #fff;
+  border: 4px solid #000;
+  color: #000;
+
+  /* Persona 5 explosive shadow */
+  box-shadow:
+    6px 6px 0 #ff1e1e,
+    -4px -4px 0 #000;
+
+  padding: 14px 16px;
+  transform: skew(-4deg);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Comic texture overlay */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 0, 0, 0.12) 0 10px,
+    rgba(0, 0, 0, 0.12) 10px 20px
+  );
+  opacity: 0.25;
+  z-index: -1;
+}
+
+/* === LIGHTNING CONTAINER === */
 .lightning {
   max-width: 150px;
   width: 100%;
-  max-height: 100%;
   height: 250px;
-  margin: auto
+  margin: auto;
+
+  border: 4px solid #000;
+  background: #fff;
+
+  /* Persona 5 shadow */
+  box-shadow:
+    5px 5px 0 #ff1e1e,
+    -3px -3px 0 #000;
+
+  transform: skew(-6deg);
+  position: relative;
+  overflow: hidden;
 }
 
+/* Comic texture overlay */
+.lightning::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.15) 0 12px,
+    rgba(0, 0, 0, 0.15) 12px 24px
+  );
+  opacity: 0.2;
+  z-index: -1;
+}
+
+/* === LEFT LIGHTNING SHAPE === */
 .lightning.left {
-  clip-path: polygon(0% 0%,  /* vasak ülemine nurk */
-                    30% 20%,  /* vasak nurk nr.2 */
-                    10% 55%,  /* vasak nurk nr.3 */
-                    85% 100%,  /* alumine tipp */
-                    65% 60%,  /* parem ülemine nurk nr.3 */
-                    100% 25%,  /* parem ülemine nurk nr.2 */
-                    75% 0%); /* parem ülemine nurk */
+  clip-path: polygon(
+    0% 0%,
+    35% 18%,
+    12% 55%,
+    85% 100%,
+    60% 60%,
+    100% 25%,
+    70% 0%
+  );
 }
 
+/* === RIGHT LIGHTNING SHAPE === */
 .lightning.right {
-  clip-path: polygon(25% 0%,  /* vasak ülemine nurk */
-                    0% 25%,  /* vasak nurk nr.2 */
-                    35% 60%,  /* vasak nurk nr.3 */
-                    15% 100%,  /* alumine tipp */
-                    90% 55%,  /* parem ülemine nurk nr.3 */
-                    70% 20%,  /* parem ülemine nurk nr.2 */
-                    100% 0%); /* parem ülemine nurk */
+  clip-path: polygon(
+    25% 0%,
+    0% 25%,
+    38% 60%,
+    15% 100%,
+    90% 55%,
+    70% 20%,
+    100% 0%
+  );
 }
 
+/* === STICKY ELEMENTS === */
 .sticky {
-  position: -webkit-sticky;
   position: sticky;
- 
+  z-index: 1000;
+  transform: skew(-3deg);
+  font-weight: 900;
+  letter-spacing: 0.5px;
 }
 
 .sticky.top {
   top: 0;
-  z-index: 1000;
+  background: #ff1e1e;
+  color: #fff;
+  border-bottom: 4px solid #000;
+
+  /* Persona 5 heavy shadow */
+  box-shadow:
+    6px 6px 0 #000,
+    -3px -3px 0 #ff1e1e;
 }
 
 .sticky.bottom {
   bottom: 0;
-   z-index: 999;
+  background: #000;
+  color: #ff1e1e;
+  border-top: 4px solid #ff1e1e;
+
+  box-shadow:
+    6px -6px 0 #ff1e1e,
+    -3px 3px 0 #000;
 }
 
+/* === FOOTER === */
 .footer {
-  color: rgba(243, 244, 246, 0.90);
+  color: #ff1e1e;
+  font-weight: 900;
+  text-shadow: 3px 3px 0 #000;
+  transform: skew(-4deg);
+  letter-spacing: 1px;
 }
